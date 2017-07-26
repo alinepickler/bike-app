@@ -1,13 +1,15 @@
 import React from 'react';
 import Map from './Map';
+import BikeInfo from './BikeInfo';
 
 
 export default class BikeApp extends React.Component {
   render() {
     return (
       <div>
-      <h3>My Google Maps Demo</h3>
+      <h2>Biking</h2>
       <Map />
+      <BikeInfo />
       </div>
     );
   }

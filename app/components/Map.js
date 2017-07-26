@@ -41,6 +41,6 @@ export default class Map extends React.Component {
   }
 
   render() {
-    return <div id="map" style={{height:'600px', width: '100%'}}></div>
+    return <div id="map" style={{height:'600px', width: '70%'}}></div>
   }
 }
