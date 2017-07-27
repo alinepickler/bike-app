@@ -16,9 +16,8 @@ export default class BikeApp extends React.Component {
   render() {
     return (
       <div>
-      <h2>Biking</h2>
-      <Map center={STOCKHOLM} locations={LOCATIONS}/>
       <BikeInfo />
+      <Map center={STOCKHOLM} locations={LOCATIONS}/>
       </div>
     );
   }
