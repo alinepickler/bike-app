@@ -4,7 +4,7 @@ export default class BikeInfo extends React.Component {
   render () {
     return (
       <div style={{height:'600px', width: '30%', display : 'inline-block'}}>
-        <div style={{padding: '0px 40px'}}>
+        <div style={{padding: '10px 40px'}}>
           <h1>Biking</h1>
           <img src="../images/blue.png" alt="Mountain View" style={{width: '100%'}}/>
           <h2>500,00</h2>

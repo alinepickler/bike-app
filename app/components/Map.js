@@ -18,7 +18,7 @@ export default class Map extends React.Component {
         position: location,
         map: map,
         label: location.label,
-        title: location.title
+        icon: location.image
       })
     });
   }
