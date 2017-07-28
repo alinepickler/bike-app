@@ -1,24 +1,23 @@
 import React from 'react';
 import Map from './Map';
-import BikeInfo from './BikeInfo';
 
 
+var ICON = '../images/bicycle.png';
 var STOCKHOLM = {lat: 59.3293, lng: 18.0686};
 var LOCATIONS = [
-  {lat: 59.3630, lng: 18.1468, price: '', image: '../images/bicycle.png'},
-  {lat: 59.3050, lng: 18.1088, price: '', image: '../images/bicycle.png'},
-  {lat: 59.3312, lng: 18.0407, price: '', image: '../images/bicycle.png'},
-  {lat: 59.3689, lng: 18.0084, price: '', image: '../images/bicycle.png'},
-  {lat: 59.3315, lng: 18.0715, price: '', image: '../images/bicycle.png'},
-  {lat: 59.3118, lng: 18.0663, price: '', image: '../images/bicycle.png'}
+  {lat: 59.3630, lng: 18.1468, price: '500,00kr', image: ICON},
+  {lat: 59.3050, lng: 18.1088, price: '500,00kr', image: ICON},
+  {lat: 59.3312, lng: 18.0407, price: '500,00kr', image: ICON},
+  {lat: 59.3689, lng: 18.0084, price: '500,00kr', image: ICON},
+  {lat: 59.3315, lng: 18.0715, price: '500,00kr', image: ICON},
+  {lat: 59.3118, lng: 18.0663, price: '500,00kr', image: ICON}
 ];
 
 export default class BikeApp extends React.Component {
   render() {
     return (
       <div>
-      <BikeInfo />
-      <Map center={STOCKHOLM} locations={LOCATIONS}/>
+      <Map icon={ICON} center={STOCKHOLM} locations={LOCATIONS}/>
       </div>
     );
   }

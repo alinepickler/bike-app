@@ -1,37 +1,54 @@
 import React from 'react';
 import GoogleMapsKey from './GoogleMapsKey';
 import GoogleMaps from './GoogleMaps';
+import BikeInfo from './BikeInfo';
 
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: this.props.center,
-      zoom: 12
-    });
-
-    this.props.locations.forEach((location) => {
-      new google.maps.Marker({
-        position: location,
-        map: map,
-        label: location.label,
-        icon: location.image
-      })
-    });
+    this.state = {
+      selectedLocation : {}
+    }
   }
 
   componentDidMount() {
-    window.props = this.props;
-    window.initMap = this.initMap;
+    var _reactThis = this;
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: _reactThis.props.center,
+        zoom: 12
+      });
+
+      _reactThis.props.locations.forEach((location) => {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map,
+          icon: _reactThis.props.icon
+        });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: location.price
+        });
+
+        marker.addListener('click', () => {
+          _reactThis.setState({selectedLocation : location});
+          infowindow.open(marker.get('map'), marker);
+        });
+      });
+    }
+
+    window.initMap = initMap;
     GoogleMaps(GoogleMapsKey, 'initMap');
   }
 
   render() {
     return (
-        <div id="map" style={{height:'600px', width: '70%', display : 'inline-block'}}></div>
+        <div>
+          <BikeInfo location={this.state.selectedLocation} />
+          <div id="map" style={{height:'600px', width: '70%', display : 'inline-block'}}>
+          </div>
+        </div>
       );
   }
 }
