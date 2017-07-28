@@ -7,32 +7,31 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedLocation : {}
+      selectedBike : {}
     }
   }
 
   componentDidMount() {
-    var _reactThis = this;
+    var reactThis = this;
+    var mapCenter = this.props.center;
+    var mapMarker = this.props.icon;
+    var mapBikes = this.props.bikes;
 
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
-        center: _reactThis.props.center,
+        center: mapCenter,
         zoom: 12
       });
 
-      _reactThis.props.locations.forEach((location) => {
+      mapBikes.forEach((bike) => {
         var marker = new google.maps.Marker({
-          position: location,
+          position: bike,
           map: map,
-          icon: _reactThis.props.icon
-        });
-
-        var infowindow = new google.maps.InfoWindow({
-          content: location.price
+          icon: mapMarker
         });
 
         marker.addListener('click', () => {
-          _reactThis.setState({selectedLocation : location});
+          reactThis.setState({selectedBike : bike});
           infowindow.open(marker.get('map'), marker);
         });
       });
@@ -45,7 +44,9 @@ export default class Map extends React.Component {
   render() {
     return (
         <div>
-          <BikeInfo location={this.state.selectedLocation} />
+          <BikeInfo
+          bike={this.state.selectedBike}
+          />
           <div id="map" style={{height:'600px', width: '70%', display : 'inline-block'}}>
           </div>
         </div>
