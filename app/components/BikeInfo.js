@@ -2,8 +2,10 @@ import React from 'react';
 
 export default class BikeInfo extends React.Component {
   render () {
-    if (this.props.bike == {}) {
-      return <h1>Biking!</h1>
+    if (this.props.bike == null) {
+      return (
+        <h1>Biking!</h1>
+      );
     } else {
         return (
           <div style={{height:'600px', width: '30%', display : 'inline-block'}}>

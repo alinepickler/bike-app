@@ -7,15 +7,15 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedBike : {}
+      selectedBike : null
     }
   }
 
   componentDidMount() {
-    var reactThis = this;
     var mapCenter = this.props.center;
     var mapMarker = this.props.icon;
     var mapBikes = this.props.bikes;
+    var selectBike = (bike) => this.setState({selectedBike:bike});
 
     function initMap() {
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,8 +31,7 @@ export default class Map extends React.Component {
         });
 
         marker.addListener('click', () => {
-          reactThis.setState({selectedBike : bike});
-          infowindow.open(marker.get('map'), marker);
+          selectBike(bike);
         });
       });
     }
