@@ -1,5 +1,5 @@
 {
-  "name": "bike-app",
+  "name": "biking",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://pickleraline@bitbucket.org/pickleraline/bike-app.git"
+    "url": "git+https://github.com/alinepickler/biking.git"
   },
   "author": "Aline Pickler",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/pickleraline/bike-app#readme",
+  "homepage": "https://github.com/alinepickler/biking",
   "dependencies": {
     "google-map-react": "^0.24.0",
     "react": "^15.6.1",
