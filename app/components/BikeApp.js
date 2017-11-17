@@ -11,7 +11,7 @@ export default class BikeApp extends React.Component {
   }
 }
 
-var ICON = '../images/bicycle.png';
+var ICON = '../images/bike-marker.png';
 var STOCKHOLM = {lat: 59.3293, lng: 18.0686};
 var DESCRIPTION = "Aenean ultrices nibh id facilisis suscipit. Aliquam mauris enim, tempus ac cursus et, consequat quis enim. Sed eget lectus euismod est molestie dapibus sit amet vel ante. Ut eget ornare metus. Duis eget lectus eu odio elementum lobortis. Etiam hendrerit urna at ultricies commodo.";
 var IMAGE = '../images/blue.png';
