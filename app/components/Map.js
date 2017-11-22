@@ -25,7 +25,7 @@ export default class Map extends React.Component {
 
       mapBikes.forEach((bike) => {
         var marker = new google.maps.Marker({
-          position: bike,
+          position: {lat:bike.lat, lng:bike.lng},
           map: map,
           icon: mapMarker
         });
